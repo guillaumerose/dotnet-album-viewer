@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  {{ .Name }}:
+    image: {{ .ImageName }}
+    build: {{ .Name }}
+    environment:
+      - "Data:useSqLite=false"
+      - "Data:SqlServerConnectionString=Server=db;Database=AlbumViewer;User Id=sa;Password=example_123;MultipleActiveResultSets=true;App=AlbumViewer"
+    ports:
+      - "{{ .Options.externalPort }}:80"

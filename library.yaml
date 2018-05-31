@@ -1,0 +1,20 @@
+apiVersion: v1alpha1
+generated: "2018-05-31T09:05:29.280045494Z"
+kind: RepositoryContent
+services:
+- apiVersion: v1alpha1
+  id: dotnet-album-viewer
+  kind: Service
+  spec:
+    category: application
+    pictoUrl: https://github.com/dockersamples/dotnet-album-viewer/raw/master/src/AlbumViewerAngular/src/touch-icon.png
+    shortDesc: Sample Angular (4) application demonstrating ASP.NET Core API features
+    source:
+      docker:
+        image: docker.io/magicwand/dotnet-album-viewer:latest
+    options:
+    - defaultValue: "8000"
+      label: External port
+      name: externalPort
+      type: hostPort
+    title: West Wind Album Viewer ASP.NET Core Sample

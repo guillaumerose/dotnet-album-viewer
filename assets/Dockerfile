@@ -1,6 +1,5 @@
 # escape=`
-FROM microsoft/dotnet:2.0.0-sdk-nanoserver AS builder
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+FROM microsoft/aspnetcore-build:2.0 AS builder
 
 WORKDIR /album-viewer
 COPY AlbumViewerNetCore.sln .
@@ -10,11 +9,10 @@ COPY src/Westwind.Utilities/Westwind.Utilities.csproj src/Westwind.Utilities/Wes
 RUN dotnet restore
 
 COPY src src
-RUN dotnet publish .\src\AlbumViewerNetCore\AlbumViewerNetCore.csproj
+RUN dotnet publish ./src/AlbumViewerNetCore/AlbumViewerNetCore.csproj
 
 # app image
-FROM microsoft/aspnetcore:2.0.0-nanoserver 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+FROM microsoft/aspnetcore:2.0
 
 WORKDIR /album-viewer
 COPY --from=builder /album-viewer/src/AlbumViewerNetCore/bin/Debug/netcoreapp2.0/publish/ .
