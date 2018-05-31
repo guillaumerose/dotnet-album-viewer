@@ -18,3 +18,14 @@ services:
       name: externalPort
       type: hostPort
     title: West Wind Album Viewer ASP.NET Core Sample
+templates:
+- apiVersion: v1alpha1
+  id: dotnet-album-viewer-sqlserver
+  kind: Template
+  spec:
+    description: West Wind Album Viewer ASP.NET Core Sample
+    services:
+    - name: db
+      serviceId: mssql-server-linux
+    - name: app
+      serviceId: dotnet-album-viewer
