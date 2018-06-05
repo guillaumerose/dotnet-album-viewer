@@ -9,3 +9,4 @@ services:
       - "Data:SqlServerConnectionString=Server=db;Database=AlbumViewer;User Id=sa;Password=example_123;MultipleActiveResultSets=true;App=AlbumViewer"
     ports:
       - "{{ .Options.externalPort }}:80"
+    restart: on-failure
