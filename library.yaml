@@ -1,5 +1,5 @@
 apiVersion: v1alpha1
-generated: "2018-05-31T09:05:29.280045494Z"
+generated: "2018-06-06T09:05:29.280045494Z"
 kind: RepositoryContent
 services:
 - apiVersion: v1alpha1
@@ -11,7 +11,7 @@ services:
     shortDesc: Sample Angular (4) application demonstrating ASP.NET Core API features
     source:
       docker:
-        image: docker.io/magicwand/dotnet-album-viewer:latest
+        image: docker.io/magicwand/dotnet-album-viewer:v0.1.0
     options:
     - defaultValue: "8000"
       label: External port
@@ -23,7 +23,8 @@ templates:
   id: dotnet-album-viewer-sqlserver
   kind: Template
   spec:
-    description: West Wind Album Viewer ASP.NET Core Sample
+    title: West Wind Album Viewer ASP.NET Core Sample
+    description: Sample Angular (4) application demonstrating ASP.NET Core API features
     services:
     - name: db
       serviceId: mssql-server-linux
